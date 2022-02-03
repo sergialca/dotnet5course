@@ -1,4 +1,5 @@
 
+using hotel_listing.Configurations;
 using hotel_listing.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,6 +40,8 @@ namespace hotel_listing
                 .AllowAnyMethod()
                 .AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(MapperInitializer));
 
             services.AddSwaggerGen(c =>
             {
