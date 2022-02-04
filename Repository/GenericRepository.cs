@@ -70,12 +70,12 @@ namespace hotel_listing.Repository
             await _db.AddAsync(entity); 
         }
 
-        public Task InsertRange(IEnumerable<T> entities)
+        public async Task InsertRange(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            await _db.AddRangeAsync(entities);
         }
 
-        public async void Update(T entity)
+        public void Update(T entity)
         {
             _db.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;    
